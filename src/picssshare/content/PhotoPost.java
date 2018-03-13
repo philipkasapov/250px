@@ -1,4 +1,4 @@
-package picssshare;
+package picssshare.content;
 
 public class PhotoPost extends Post {
 
