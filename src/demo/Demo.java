@@ -8,6 +8,10 @@ public class Demo {
 		for (int i = 0; i < 10; i++) {
 			System.out.println("na mikrofona proba");
 		}
+		
+		for(int pullnaLi = 0; pullnaLi < 5; pullnaLi++) {
+			System.out.println("Pullna li?");
+		}
 
 	}
 
