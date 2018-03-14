@@ -33,7 +33,55 @@ public class User {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
+		this.subscriptions = new ArrayList<User>();
+		this.posts = new ArrayList<Post>();
+		this.likedPhotos = new ArrayList<Content>();
+		this.bookmarks = new ArrayList<Content>();
+		//TODO: Feed part
 	}
+	
+	//=================FILL COLLECTIONS===============//
+	public void addSubscription(User u) {
+		if(u!=null) {
+			this.subscriptions.add(u);
+			System.out.println("Subscribed to "+u.getUsername());
+		}
+		else {
+			System.out.println("Problem during subscription to user.");
+		}
+	}
+	
+	public void addPost(Post p) {
+		if(p!=null) {
+			this.posts.add(p);
+			System.out.println("Post added.");
+		}
+		else {
+			System.out.println("Error with adding post.");
+		}
+	}
+	
+	public void addLikedPhoto(Content c) {
+		if(c.isPhoto() && c!=null) {
+			this.likedPhotos.add(c);
+			System.out.println("Photo added to liked.");
+		}
+		else {
+			System.out.println("Problem with adding a photo to liked ones.");
+		}
+	}
+	
+	public void addBookmark(Content c) {
+		if(c!=null) {
+			this.bookmarks.add(c);
+			System.out.println("Bookmarked content.");
+		}
+		else {
+			System.out.println("Error with bookmark.");
+		}
+	}
+	
+	//==================REGISTER/LOGIN===============//
 
 	public void registerRequest() {
 		server.register(this);
