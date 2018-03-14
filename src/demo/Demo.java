@@ -3,11 +3,10 @@ package demo;
 import java.util.Random;
 
 import picssshare.Server;
-import picssshare.User;
+import picssshare.user.User;
 
 public class Demo {
 	
-<<<<<<< HEAD
 	public static int getRandomNumber(int range, int startPoint) {
 		Random r = new Random();
 		return r.nextInt(range)+startPoint;
@@ -32,9 +31,7 @@ public class Demo {
 		server.showUsers();
 		
 		user.loginRequest();
-		user1.loginRequest(); //
+		user1.loginRequest(); 
 	}
 
-=======
->>>>>>> e71ab17016c5f06869373f987d139a7552d22da9
 }

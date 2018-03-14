@@ -2,6 +2,8 @@ package picssshare;
 
 import java.util.ArrayList;
 
+import picssshare.user.User;
+
 public class Server {
 
 	public static int usersID = 100000;
@@ -13,21 +15,21 @@ public class Server {
 	
 	//========================REGISTER PART===================================//
 
-	public void register(String username, String password, String firstName, String lastName, String email) {
+	public void register(User user) {
 		boolean correctUsername = false;
 		boolean correctPassword = false;
 		boolean correctFirstName = false;
 		boolean correctLastName = false;
 		boolean correctEmail = false;
 		
-		if(validateUsername(username)){
+		if(validateUsername(user.getUsername())){
 			correctUsername = true;
 		}
 		else {
 			System.out.println("Incorrect username!");
 		}
 		
-		if(validatePassword(password)) {
+		if(validatePassword(user.getPassword())) {
 			correctPassword = true;
 		}
 		else {
@@ -36,21 +38,21 @@ public class Server {
 					+ ", one lowercase letter, one digit, one special character and must be at least 8 characters long!");
 		}
 		
-		if(validateFirstName(firstName)) {
+		if(validateFirstName(user.getFirstName())) {
 			correctFirstName = true;
 		}
 		else {
 			System.out.println("Incorrect first name!");
 		}
 		
-		if(validateLastName(lastName)) {
+		if(validateLastName(user.getLastName())) {
 			correctLastName = true;
 		}
 		else {
 			System.out.println("Incorrect last name!");
 		}
 		
-		if(validateEmailAddress(email)) {
+		if(validateEmailAddress(user.getEmail())) {
 			correctEmail = true;
 		}
 		else {
@@ -58,11 +60,10 @@ public class Server {
 		}
 		
 		if(correctUsername && correctPassword && correctFirstName && correctLastName && correctEmail) {
-			User user = new User(username, password, firstName, lastName, email);
 			user.setId(usersID);
 			usersID++;
 			this.users.add(user);
-			System.out.println(username + " has been successfully registered.");
+			System.out.println(user.getUsername() + " has been successfully registered.");
 			
 		}
 	}

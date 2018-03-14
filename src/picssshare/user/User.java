@@ -3,6 +3,10 @@ package picssshare.user;
 import java.util.ArrayList;
 
 import demo.Demo;
+import picssshare.Server;
+import picssshare.content.Content;
+import picssshare.content.Post;
+import picssshare.feed.Feed;
 
 public class User {
 		
@@ -32,7 +36,7 @@ public class User {
 	}
 
 	public void registerRequest() {
-		server.register(this.username,this.password,this.firstName,this.lastName, this.email);
+		server.register(this);
 	}
 	
 	public void loginRequest() {
@@ -50,8 +54,21 @@ public class User {
 		return username;
 	}
 	
+	
 	public String getPassword() {
 		return password;
+	}
+	
+	public String getFirstName() {
+		return firstName;
+	}
+	
+	public String getLastName() {
+		return lastName;
+	}
+	
+	public String getEmail() {
+		return email;
 	}
 	
 	public void setServer(Server server) {
