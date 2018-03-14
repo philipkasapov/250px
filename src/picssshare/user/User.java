@@ -4,32 +4,40 @@ import java.util.ArrayList;
 
 import demo.Demo;
 import picssshare.Server;
+<<<<<<< HEAD
 import picssshare.UserLogging;
 import picssshare.content.Content;
+=======
+>>>>>>> 92ff7079e00d9af748c9a126b64b207c82c39183
 import picssshare.content.Post;
 import picssshare.feed.Feed;
 
 public class User {
-		
+
 	private int id;
 	private String username;
 	private String password;
 	private String firstName;
 	private String lastName;
 	private String email;
-	//set for unique in subscriptions
+	// set for unique in subscriptions
 	private ArrayList<User> subscriptions;
-	
-	//subscribers(Observer pattern)
+	// subscribers(Observer pattern)
 	private ArrayList<Post> posts;
 	private Feed feed;
+<<<<<<< HEAD
 	
 	private ArrayList<Content> likedPhotos;
 	private ArrayList<Content> bookmarks;
 	//server would proceed requests like login and register and would have info about all the users
+=======
+	// Post instead of content. using set instead of list for unique values
+	// private ArrayList<Content> likedPhotos;
+	// private ArrayList<Content> bookmarks;
+	// server would proceed requests like login and register and would have info
+	// about all the users
+>>>>>>> 92ff7079e00d9af748c9a126b64b207c82c39183
 	private Server server;
-	
-	
 
 	public User(String username, String password, String firstName, String lastName, String email) {
 		super();
@@ -40,108 +48,110 @@ public class User {
 		this.email = email;
 		this.subscriptions = new ArrayList<User>();
 		this.posts = new ArrayList<Post>();
-		this.likedPhotos = new ArrayList<Content>();
-		this.bookmarks = new ArrayList<Content>();
-		//TODO: Feed part
+		// this.likedPhotos = new ArrayList<Content>();
+		// this.bookmarks = new ArrayList<Content>();
+		// TODO: Feed part
 	}
-	
-	//=================FILL COLLECTIONS===============//
+
+	// =================FILL COLLECTIONS===============//
 	public void addSubscription(User u) {
-		if(u!=null) {
-			//notify user about being subscribed
+		if (u != null) {
+			// notify user about being subscribed
 			this.subscriptions.add(u);
-			System.out.println("Subscribed to "+u.getUsername());
-		}
-		else {
+			System.out.println("Subscribed to " + u.getUsername());
+		} else {
 			System.out.println("Problem during subscription to user.");
 		}
 	}
-	
+
 	public void addPost(Post p) {
-		if(p!=null) {
+		if (p != null) {
 			this.posts.add(p);
 			System.out.println("Post added.");
-		}
-		else {
+		} else {
 			System.out.println("Error with adding post.");
 		}
 	}
-	
+
 	public void addLikedPhoto(Content c) {
-		if(c.isPhoto() && c!=null) {
-			//TODO check if not already in liked
-			//notify liked photo user about like
+		if (c.isPhoto() && c != null) {
+			// TODO check if not already in liked
+			// notify liked photo user about like
 			this.likedPhotos.add(c);
 			System.out.println("Photo added to liked.");
-		}
-		else {
+		} else {
 			System.out.println("Problem with adding a photo to liked ones.");
 		}
 	}
-	
+
 	public void addBookmark(Content c) {
-		if(c!=null) {
-			//TODO check if not already in liked
+		if (c != null) {
+			// TODO check if not already in liked
 			this.bookmarks.add(c);
 			System.out.println("Bookmarked content.");
-		}
-		else {
+		} else {
 			System.out.println("Error with bookmark.");
 		}
 	}
-	
-	//==================REGISTER/LOGIN===============//
+
+	// ==================REGISTER/LOGIN===============//
 
 	public void registerRequest() {
 		UserLogging.register(this);
 	}
-	
+
 	public void loginRequest() {
+<<<<<<< HEAD
 		if(UserLogging.login(this)) {
 			System.out.println(this.username+" successfully logged.");
 		}
 		else {
+=======
+		if (this.server.login(this)) {
+			System.out.println(this.username + " successfully logged.");
+		} else {
+>>>>>>> 92ff7079e00d9af748c9a126b64b207c82c39183
 			System.out.println("Login operation unsuccessfull.");
 		}
 	}
-	
-	//=====================GETTERS AND SETTERS===============//
-	
+
+	// =====================GETTERS AND SETTERS===============//
+
 	public String getUsername() {
 		return username;
 	}
-	
-	
+
 	public String getPassword() {
 		return password;
 	}
-	
+
 	public String getFirstName() {
 		return firstName;
 	}
-	
+
 	public String getLastName() {
 		return lastName;
 	}
-	
+
 	public String getEmail() {
 		return email;
 	}
-	
+
 	public void setServer(Server server) {
 		this.server = server;
 	}
-	
+
 	public void setId(int id) {
 		this.id = id;
 	}
-	//=====================================================//
+	// =====================================================//
 
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", username=" + username + ", password=" + password + ", firstName=" + firstName
 				+ ", lastName=" + lastName + ", email=" + email + "]";
 	}
+<<<<<<< HEAD
 
 	@Override
 	public int hashCode() {
@@ -173,5 +183,7 @@ public class User {
 	
 	
 	
+=======
+>>>>>>> 92ff7079e00d9af748c9a126b64b207c82c39183
 
 }

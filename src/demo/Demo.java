@@ -4,6 +4,8 @@ import java.util.Random;
 
 import picssshare.Server;
 import picssshare.UserLogging;
+import picssshare.content.PhotoPost;
+import picssshare.content.Post;
 import picssshare.user.User;
 
 public class Demo {
@@ -38,6 +40,19 @@ public class Demo {
 		System.out.println("tigra logged " + (UserLogging.login("tigra","qwerty") ? "succsefully" : "unseccessfully"));
 		System.out.println("tigra logged " + (UserLogging.login("tigran","TigaraBe3?") ? "succsefully" : "unseccessfully"));
 
+
+		user1.loginRequest(); 
+		System.out.println("========================");
+		Post post = new PhotoPost(user, "C:\\Users\\Philip\\Desktop\\saf.ttxt");
+		post.addLike();
+		post.addLike();
+		post.addLike();
+		post.addComment(user3, "MNOO QK");
+		post.addComment(user2, "CHESTNO");
+		post.addComment(user1, "TAKA E");
+		post.showInfo();
+		post.deleteComment(1);
+		post.showInfo();
 	}
 
 }
