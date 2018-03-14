@@ -16,9 +16,13 @@ public class User {
 	private String firstName;
 	private String lastName;
 	private String email;
+	//set for unique in subscriptions
 	private ArrayList<User> subscriptions;
+	
+	//subscribers(Observer pattern)
 	private ArrayList<Post> posts;
 	private Feed feed;
+	//Post instead of content. using set instead of list for unique values
 	private ArrayList<Content> likedPhotos;
 	private ArrayList<Content> bookmarks;
 	//server would proceed requests like login and register and would have info about all the users
@@ -43,6 +47,7 @@ public class User {
 	//=================FILL COLLECTIONS===============//
 	public void addSubscription(User u) {
 		if(u!=null) {
+			//notify user about being subscribed
 			this.subscriptions.add(u);
 			System.out.println("Subscribed to "+u.getUsername());
 		}
@@ -63,6 +68,8 @@ public class User {
 	
 	public void addLikedPhoto(Content c) {
 		if(c.isPhoto() && c!=null) {
+			//TODO check if not already in liked
+			//notify liked photo user about like
 			this.likedPhotos.add(c);
 			System.out.println("Photo added to liked.");
 		}
@@ -73,6 +80,7 @@ public class User {
 	
 	public void addBookmark(Content c) {
 		if(c!=null) {
+			//TODO check if not already in liked
 			this.bookmarks.add(c);
 			System.out.println("Bookmarked content.");
 		}

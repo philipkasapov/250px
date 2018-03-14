@@ -110,6 +110,7 @@ public class Server {
 	//================================================================//
 	
 	public boolean login(User user) {
+		// hashes for complexity/ or sort users by some criteria and use bin search
 		for(User u: this.users) {
 			if(u.getUsername().equals(user.getUsername()) && u.getPassword().equals(user.getPassword())) {
 				return true;
