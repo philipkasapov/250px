@@ -6,6 +6,6 @@ public abstract class Post {
 
 	protected int likes;
 	protected LocalDateTime date;
-	//TODO: COMMENTS -> Classes ? true : false;
+	//TODO: COMMENTS -> Classes ? true : false; ------- true (should contain user info, date and text)
 	
 }

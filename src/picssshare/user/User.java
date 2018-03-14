@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import demo.Demo;
 import picssshare.Server;
+import picssshare.UserLogging;
 import picssshare.content.Content;
 import picssshare.content.Post;
 import picssshare.feed.Feed;
@@ -22,7 +23,7 @@ public class User {
 	//subscribers(Observer pattern)
 	private ArrayList<Post> posts;
 	private Feed feed;
-	//Post instead of content. using set instead of list for unique values
+	
 	private ArrayList<Content> likedPhotos;
 	private ArrayList<Content> bookmarks;
 	//server would proceed requests like login and register and would have info about all the users
@@ -92,11 +93,11 @@ public class User {
 	//==================REGISTER/LOGIN===============//
 
 	public void registerRequest() {
-		server.register(this);
+		UserLogging.register(this);
 	}
 	
 	public void loginRequest() {
-		if(this.server.login(this)) {
+		if(UserLogging.login(this)) {
 			System.out.println(this.username+" successfully logged.");
 		}
 		else {
@@ -141,6 +142,34 @@ public class User {
 		return "User [id=" + id + ", username=" + username + ", password=" + password + ", firstName=" + firstName
 				+ ", lastName=" + lastName + ", email=" + email + "]";
 	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((username == null) ? 0 : username.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		User other = (User) obj;
+		if (username == null) {
+			if (other.username != null)
+				return false;
+		} else if (!username.equals(other.username))
+			return false;
+		return true;
+	}
+	
+	
+	
 	
 	
 	

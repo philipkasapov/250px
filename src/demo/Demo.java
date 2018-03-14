@@ -3,6 +3,7 @@ package demo;
 import java.util.Random;
 
 import picssshare.Server;
+import picssshare.UserLogging;
 import picssshare.user.User;
 
 public class Demo {
@@ -15,7 +16,7 @@ public class Demo {
 	public static void main(String[] args) {
 		Server server = new Server();
 		User user = new User("amatrixable", "YesssssBe5!", "Philip", "Kasapov", "amatrixable@gmail.com");
-		User user1 = new User("distmist", "heyhey123", "Slovan", "Kaspeev", "slovko@.gmail.com");
+		User user1 = new User("distmist", "Heyhey123", "Slovan", "Kaspeev", "slovko@gmail.com");
 		User user2 = new User("peshoO91", "toughpassword123", "Petyr", "Petrov", "peshko@gmail.com");
 		User user3 = new User("tigra", "TigaraBe3?", "Tisho", "Petrov", "tishoooooo@gmail.com");
 		user.setServer(server);
@@ -31,7 +32,12 @@ public class Demo {
 		server.showUsers();
 		
 		user.loginRequest();
-		user1.loginRequest(); 
+		user1.loginRequest();
+		
+		System.out.println("tigra logged " + (UserLogging.login("tigra","TigaraBe3?") ? "succsefully" : "unseccessfully"));
+		System.out.println("tigra logged " + (UserLogging.login("tigra","qwerty") ? "succsefully" : "unseccessfully"));
+		System.out.println("tigra logged " + (UserLogging.login("tigran","TigaraBe3?") ? "succsefully" : "unseccessfully"));
+
 	}
 
 }
