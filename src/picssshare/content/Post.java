@@ -1,7 +1,6 @@
 package picssshare.content;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -54,6 +53,11 @@ public abstract class Post {
 			System.out.print("  --> posted on: "+entry.getValue().getPostTime());
 			System.out.println();
 		}
+	}
+
+	public boolean isPhoto() {
+		// TODO Auto-generated method stub
+		return false;
 	}
 	
 	

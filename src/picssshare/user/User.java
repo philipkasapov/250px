@@ -2,10 +2,8 @@ package picssshare.user;
 
 import java.util.ArrayList;
 
-import demo.Demo;
 import picssshare.Server;
 import picssshare.UserLogging;
-import picssshare.content.Content;
 import picssshare.content.Post;
 import picssshare.feed.Feed;
 
@@ -24,8 +22,8 @@ public class User {
 	private ArrayList<Post> posts;
 	private Feed feed;
 	
-	private ArrayList<Content> likedPhotos;
-	private ArrayList<Content> bookmarks;
+	private ArrayList<Post> likedPhotos;
+	private ArrayList<Post> bookmarks;
 	//server would proceed requests like login and register and would have info about all the users
 	private Server server;
 	
@@ -40,8 +38,8 @@ public class User {
 		this.email = email;
 		this.subscriptions = new ArrayList<User>();
 		this.posts = new ArrayList<Post>();
-		this.likedPhotos = new ArrayList<Content>();
-		this.bookmarks = new ArrayList<Content>();
+		this.likedPhotos = new ArrayList<Post>();
+		this.bookmarks = new ArrayList<Post>();
 		//TODO: Feed part
 	}
 	
@@ -67,7 +65,7 @@ public class User {
 		}
 	}
 	
-	public void addLikedPhoto(Content c) {
+	public void addLikedPhoto(Post c) {
 		if(c.isPhoto() && c!=null) {
 			//TODO check if not already in liked
 			//notify liked photo user about like
@@ -79,7 +77,7 @@ public class User {
 		}
 	}
 	
-	public void addBookmark(Content c) {
+	public void addBookmark(Post c) {
 		if(c!=null) {
 			//TODO check if not already in liked
 			this.bookmarks.add(c);
