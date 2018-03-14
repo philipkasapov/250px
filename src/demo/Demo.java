@@ -3,6 +3,8 @@ package demo;
 import java.util.Random;
 
 import picssshare.Server;
+import picssshare.content.PhotoPost;
+import picssshare.content.Post;
 import picssshare.user.User;
 
 public class Demo {
@@ -32,6 +34,17 @@ public class Demo {
 		
 		user.loginRequest();
 		user1.loginRequest(); 
+		System.out.println("========================");
+		Post post = new PhotoPost(user, "C:\\Users\\Philip\\Desktop\\saf.ttxt");
+		post.addLike();
+		post.addLike();
+		post.addLike();
+		post.addComment(user3, "MNOO QK");
+		post.addComment(user2, "CHESTNO");
+		post.addComment(user1, "TAKA E");
+		post.showInfo();
+		post.deleteComment(1);
+		post.showInfo();
 	}
 
 }
