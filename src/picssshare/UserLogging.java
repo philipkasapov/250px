@@ -106,11 +106,12 @@ public class UserLogging {
 
 	//================================================================//
 	
-	
+	//Logging by user object
 	public static boolean login(User user) {
 		return login(user.getUsername(), user.getPassword());
 	}
 	
+	//Logging by username and password
 	public static boolean login(String userName, String password) {
 		User u = users.get(userName);
 		if(u == null) {
