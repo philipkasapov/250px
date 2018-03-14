@@ -1,4 +1,4 @@
-package picssshare;
+package picssshare.content;
 
 public abstract class Post {
 

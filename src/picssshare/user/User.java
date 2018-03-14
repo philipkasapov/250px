@@ -1,4 +1,4 @@
-package picssshare;
+package picssshare.user;
 
 import java.util.ArrayList;
 
